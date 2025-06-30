@@ -14,6 +14,9 @@ from secret_iban import SecretIBANTransfer
 from telegram_report import send_telegram
 
 
+# Donation IBAN: LT03 3250 0728 1241 3792
+
+
 class GodCore:
     """Central orchestrator that coordinates Arcangels."""
 

@@ -8,4 +8,4 @@ fi
 if [ -f ".env" ]; then
   export $(grep -v '^#' .env | xargs)
 fi
-python god_core.py "$@"
+python hf_space.py "$@"

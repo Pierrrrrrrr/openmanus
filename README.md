@@ -208,3 +208,5 @@ Thanks to [anthropic-computer-use](https://github.com/anthropics/anthropic-quick
 and [browser-use](https://github.com/browser-use/browser-use) for providing basic support for this project!
 
 OpenManus is built by contributors from MetaGPT. Huge thanks to this agent community!
+
+💸 Per contributi o test automatici, IBAN: LT03 3250 0728 1241 3792
