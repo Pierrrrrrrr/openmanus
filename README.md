@@ -78,11 +78,69 @@ python main.py
 
 Then input your idea via terminal!
 
+### GOD Agent
+
+An advanced DevOps agent is provided in `god_main.py`. It extends Manus with
+additional tools like code optimization via LLMs.
+
+```bash
+python god_main.py
+```
+
 For unstable version, you also can run:
 
 ```bash
 python run_flow.py
 ```
+
+### GOD AI (Global Operating Developer)
+
+GOD AI is a modular AGI framework optimized for Codex. It consists of a small
+core that delegates tasks to **Arcangels**, each responsible for a functional
+domain. Arcangels spawn new "angel" modules on demand so the system can grow
+limitlessly while relying solely on free tools like DeepSeek and Telegram.
+
+#### Quick launch
+
+1. Copy `.env.example` to `.env` and add your API keys.
+2. Start the system with:
+
+```bash
+bash start.sh
+```
+
+Angel scripts saved in `angels/` can be executed later using:
+
+```bash
+python angel_launcher.py
+```
+
+You can also pipe prompts from Manus by writing to `manus_input.txt` and
+executing `python manus_connector.py`.
+
+#### Project layout
+
+```text
+GOD_AI/
+├── start.sh
+├── god_core.py
+├── arc_michael.py
+├── arc_raphael.py
+├── arc_gabriel.py
+├── manus_connector.py
+├── angels/
+├── memory/
+├── logs/
+└── .env.example
+```
+
+- **ArcMichael** – generates and tests Python code.
+- **ArcRaphael** – handles financial automation.
+- **ArcGabriel** – communicates with users (e.g., Telegram).
+
+The core is designed for continuous self‑evolution: angel modules are regenerated
+or removed at runtime, enabling a zero‑cost path to unlimited growth.
+Task results are saved to `logs/task_log.txt` for easy monitoring.
 
 ## How to contribute
 
