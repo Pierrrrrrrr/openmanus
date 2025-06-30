@@ -55,16 +55,16 @@ cp config/config.example.toml config/config.toml
 ```toml
 # Global LLM configuration
 [llm]
-model = "gpt-4o"
-base_url = "https://api.openai.com/v1"
+model = "deepseek-coder"
+base_url = "https://api.deepseek.com/v1"
 api_key = "sk-..."  # Replace with your actual API key
 max_tokens = 4096
 temperature = 0.0
 
 # Optional configuration for specific LLM models
 [llm.vision]
-model = "gpt-4o"
-base_url = "https://api.openai.com/v1"
+model = "deepseek-coder"
+base_url = "https://api.deepseek.com/v1"
 api_key = "sk-..."  # Replace with your actual API key
 ```
 
