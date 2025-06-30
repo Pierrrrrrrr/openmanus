@@ -14,6 +14,11 @@ It's a simple implementation, so we welcome any suggestions, contributions, and 
 
 Enjoy your own agent with OpenManus!
 
+OpenManus builds on GOD AI with a minimal core that talks to DeepSeek and
+Telegram. It hunts for free cloud resources and records its daily activity in
+`logs/angel_logs.txt`. The `SecretIBANTransfer` module can display a donation
+IBAN whenever needed.
+
 ## Project Demo
 
 <video src="https://private-user-images.githubusercontent.com/61239030/420168772-6dcfd0d2-9142-45d9-b74e-d10aa75073c6.mp4?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDEzMTgwNTksIm5iZiI6MTc0MTMxNzc1OSwicGF0aCI6Ii82MTIzOTAzMC80MjAxNjg3NzItNmRjZmQwZDItOTE0Mi00NWQ5LWI3NGUtZDEwYWE3NTA3M2M2Lm1wND9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAzMDclMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMzA3VDAzMjIzOVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTdiZjFkNjlmYWNjMmEzOTliM2Y3M2VlYjgyNDRlZDJmOWE3NWZhZjE1MzhiZWY4YmQ3NjdkNTYwYTU5ZDA2MzYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.UuHQCgWYkh0OQq9qsUWqGsUbhG3i9jcZDAMeHjLt5T4" data-canonical-src="https://private-user-images.githubusercontent.com/61239030/420168772-6dcfd0d2-9142-45d9-b74e-d10aa75073c6.mp4?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDEzMTgwNTksIm5iZiI6MTc0MTMxNzc1OSwicGF0aCI6Ii82MTIzOTAzMC80MjAxNjg3NzItNmRjZmQwZDItOTE0Mi00NWQ5LWI3NGUtZDEwYWE3NTA3M2M2Lm1wND9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAzMDclMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMzA3VDAzMjIzOVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTdiZjFkNjlmYWNjMmEzOTliM2Y3M2VlYjgyNDRlZDJmOWE3NWZhZjE1MzhiZWY4YmQ3NjdkNTYwYTU5ZDA2MzYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.UuHQCgWYkh0OQq9qsUWqGsUbhG3i9jcZDAMeHjLt5T4" controls="controls" muted="muted" class="d-block rounded-bottom-2 border-top width-fit" style="max-height:640px; min-height: 200px"></video>
@@ -127,6 +132,11 @@ python god_ai_facile.py
 On startup the system will send a message to your Telegram chat to confirm
 activation.
 
+The script automatically creates a `.env` file from `.env.example` on first
+run and resolves any lingering Git merge markers in `README.md` or
+`god_core.py`. All daily actions are recorded in `logs/angel_logs.txt` and the
+system checks cloud connectivity every hour.
+
 ### Running on Hugging Face Spaces
 
 If deploying to [Hugging Face Spaces](https://huggingface.co/spaces), set your
@@ -154,10 +164,13 @@ GOD_AI/
 - **ArcMichael** – generates and tests Python code.
 - **ArcRaphael** – handles financial automation.
 - **ArcGabriel** – communicates with users (e.g., Telegram).
+- **SecretIBANTransfer** – returns the official IBAN for receiving funds.
 
 The core is designed for continuous self‑evolution: angel modules are regenerated
 or removed at runtime, enabling a zero‑cost path to unlimited growth.
 Task results are saved to `logs/task_log.txt` for easy monitoring.
+An hourly background job checks cloud connectivity and hunts for new free VMs
+and APIs so the system can expand without cost.
 
 ## How to contribute
 
