@@ -1,10 +1,15 @@
 import asyncio
+
 from datetime import datetime
 from pathlib import Path
 
 import requests
 
 from app.deepseek import ask_deepseek
+
+from pathlib import Path
+
+
 from app.logger import logger
 from app.task import record_task
 from arc_gabriel import ArcGabriel
@@ -17,6 +22,7 @@ from telegram_report import send_telegram
 # Donation IBAN: LT03 3250 0728 1241 3792
 
 
+
 class GodCore:
     """Central orchestrator that coordinates Arcangels."""
 
@@ -24,6 +30,7 @@ class GodCore:
         self.arcs = [ArcMichael(), ArcRaphael(), ArcGabriel()]
         self.angel_dir = Path("angels")
         self.angel_dir.mkdir(exist_ok=True)
+
         self._log_path = Path("logs/angel_logs.txt")
         send_telegram("GOD AI attivato su Hugging Face.")
         self._background = asyncio.create_task(self._cloud_loop())
@@ -36,6 +43,11 @@ class GodCore:
 
         ds_response = ask_deepseek(prompt)
         record_task(prompt, "deepseek", bool(ds_response))
+
+
+    async def run(self, prompt: str) -> str:
+        """Dispatch the prompt to all Arcangels in parallel."""
+
         tasks = [arc.run(prompt) for arc in self.arcs]
         results = await asyncio.gather(*tasks, return_exceptions=True)
         outputs = []
@@ -45,6 +57,7 @@ class GodCore:
                 record_task(prompt, arc.name, False)
                 retry = await self._spawn_angel(arc, prompt)
                 outputs.append(retry)
+
                 send_telegram(f"{arc.name} failed and was retried.")
             else:
                 record_task(prompt, arc.name, True)
@@ -110,6 +123,12 @@ class GodCore:
             if not skip:
                 cleaned.append(line)
         file_path.write_text("\n".join(cleaned))
+
+            else:
+                record_task(prompt, arc.name, True)
+                outputs.append(result)
+        return "\n\n".join(outputs)
+
 
     async def _spawn_angel(self, arc, prompt: str) -> str:
         """Create a simple angel script and retry the task."""

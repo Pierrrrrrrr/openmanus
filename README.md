@@ -123,6 +123,8 @@ python angel_launcher.py
 
 You can also pipe prompts from Manus by writing to `manus_input.txt` and
 executing `python manus_connector.py`.
+
+
 For a single-shot run that reads `manus_input.txt` and writes to
 `manus_output.txt` you can use:
 
@@ -145,6 +147,7 @@ API keys as repository secrets (`DEEPSEEK_API_KEY`, `TELEGRAM_TOKEN`,
 simple Gradio interface where
 you can enter prompts and see responses from GOD AI.
 
+
 #### Project layout
 
 ```text
@@ -164,13 +167,21 @@ GOD_AI/
 - **ArcMichael** – generates and tests Python code.
 - **ArcRaphael** – handles financial automation.
 - **ArcGabriel** – communicates with users (e.g., Telegram).
+
+
 - **SecretIBANTransfer** – returns the official IBAN for receiving funds.
+=======
+
 
 The core is designed for continuous self‑evolution: angel modules are regenerated
 or removed at runtime, enabling a zero‑cost path to unlimited growth.
 Task results are saved to `logs/task_log.txt` for easy monitoring.
+
+
 An hourly background job checks cloud connectivity and hunts for new free VMs
 and APIs so the system can expand without cost.
+
+
 
 ## How to contribute
 

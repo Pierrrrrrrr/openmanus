@@ -6,6 +6,9 @@ from app.agent.planning import PlanningAgent
 from app.agent.react import ReActAgent
 from app.agent.swe import SWEAgent
 from app.agent.toolcall import ToolCallAgent
+from arc_gabriel import ArcGabriel
+from arc_michael import ArcMichael
+from arc_raphael import ArcRaphael
 
 
 if TYPE_CHECKING:  # Avoid circular imports at runtime
