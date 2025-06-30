@@ -118,6 +118,13 @@ python angel_launcher.py
 You can also pipe prompts from Manus by writing to `manus_input.txt` and
 executing `python manus_connector.py`.
 
+### Running on Hugging Face Spaces
+
+If deploying to [Hugging Face Spaces](https://huggingface.co/spaces), set your
+API keys as repository secrets (`DEEPSEEK_API_KEY`, `TELEGRAM_TOKEN`) and run
+`hf_space.py` as the entry point. It launches a simple Gradio interface where
+you can enter prompts and see responses from GOD AI.
+
 #### Project layout
 
 ```text
