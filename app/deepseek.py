@@ -7,8 +7,12 @@ from app.logger import logger
 
 def ask_deepseek(prompt: str) -> str:
     """Query DeepSeek API and return the response text."""
+    api_key = os.getenv("DEEPSEEK_API_KEY", "")
+    if not api_key:
+        logger.error("DEEPSEEK_API_KEY not set")
+        return ""
     headers = {
-        "Authorization": f"Bearer {os.getenv('DEEPSEEK_API_KEY', '')}",
+        "Authorization": f"Bearer {api_key}",
         "Content-Type": "application/json",
     }
     payload = {

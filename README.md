@@ -109,14 +109,15 @@ limitlessly while relying solely on free tools like DeepSeek and Telegram.
 
 1. Copy `.env.example` to `.env` and add `DEEPSEEK_API_KEY`,
    `TELEGRAM_TOKEN` and `TELEGRAM_CHAT_ID` if you are running locally.
-   On Hugging Face Spaces you can set these as repository secrets instead and
-   `start.sh` will keep them intact.
+   **Never commit your real keys**. On Hugging Face Spaces, set them as
+   repository secrets instead and `start.sh` will keep them intact.
 2. Start the system with:
 
 ```bash
 bash start.sh
 ```
-Mixtral is heavy, so if you need a GPU you can run the CLI:
+Mixtral is heavy, so if you need a GPU you can run the CLI. DeepSeek will be
+used automatically if Mixtral fails:
 
 ```bash
 python god_launcher.py
@@ -156,8 +157,8 @@ API keys as repository secrets (`DEEPSEEK_API_KEY`, `TELEGRAM_TOKEN`,
 are not already defined, so your secrets remain in effect. Run `hf_space.py` as
 the entry point. It launches a simple Gradio interface where
 you can enter prompts and see responses from GOD AI.
-The backend loads the Mixtral model via `transformers`; running in a GPU
-environment such as Colab is recommended.
+The backend loads the Mixtral model via `transformers` if a GPU is available.
+When no GPU is detected, it falls back to DeepSeek through its API.
 
 #### Project layout
 
