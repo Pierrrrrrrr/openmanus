@@ -1,21 +1,9 @@
 import asyncio
-import os
 import sys
-from pathlib import Path
 
+from app.env import load_env
 from app.logger import logger
 from god_core import GodCore
-
-
-def load_env() -> None:
-    env = Path(".env")
-    if not env.exists():
-        return
-    for line in env.read_text().splitlines():
-        if not line or line.startswith("#") or "=" not in line:
-            continue
-        k, v = line.split("=", 1)
-        os.environ.setdefault(k, v)
 
 
 def in_colab() -> bool:

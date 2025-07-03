@@ -1,22 +1,9 @@
 import asyncio
-import os
 from pathlib import Path
 
+from app.env import load_env
 from app.logger import logger
 from god_core import GodCore
-
-
-def load_env() -> None:
-    """Load variables from .env if present."""
-    env_file = Path(".env")
-    if not env_file.exists():
-        return
-    for line in env_file.read_text().splitlines():
-        line = line.strip()
-        if not line or line.startswith("#") or "=" not in line:
-            continue
-        key, value = line.split("=", 1)
-        os.environ.setdefault(key, value)
 
 
 async def main() -> None:

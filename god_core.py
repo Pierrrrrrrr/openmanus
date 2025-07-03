@@ -99,7 +99,11 @@ class GodCore:
         if not file_path.exists():
             return
         content = file_path.read_text().splitlines()
-        if not any(m in line for m in ("<<<<<<<", "=======", ">>>>>>>")):
+        if not any(
+            marker in line
+            for line in content
+            for marker in ("<<<<<<<", "=======", ">>>>>>>")
+        ):
             return
         cleaned = []
         skip = False
