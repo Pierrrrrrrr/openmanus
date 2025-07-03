@@ -113,6 +113,9 @@ limitlessly while relying solely on free tools like DeepSeek and Telegram.
    repository secrets instead and `start.sh` will keep them intact.
 2. Start the system with:
 
+   The log file `logs/task_log.txt` records success or failure for each
+   executed angel task.
+
 ```bash
 bash start.sh
 ```
