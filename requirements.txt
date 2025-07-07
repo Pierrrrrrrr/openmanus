@@ -20,6 +20,9 @@ colorama~=0.4.6
 playwright~=1.49.1
 gradio~=4.29.0
 requests~=2.32.3
+bc1kvb-codex/costruire-sistema-god-ai
 transformers~=4.41.2
 accelerate~=0.30.1
 torch~=2.3.0
+
+main
