@@ -1,4 +1,9 @@
 import asyncio
+zjbow5-codex/costruire-sistema-god-ai
+from pathlib import Path
+
+from app.env import load_env
+
 bc1kvb-codex/costruire-sistema-god-ai
 from pathlib import Path
 
@@ -8,9 +13,14 @@ import os
 from pathlib import Path
 
 main
+ main
 from app.logger import logger
 from god_core import GodCore
 
+
+zjbow5-codex/costruire-sistema-god-ai
+async def main() -> None:
+    load_env(prompt_missing=True)
 
 bc1kvb-codex/costruire-sistema-god-ai
 
@@ -30,6 +40,7 @@ def load_env() -> None:
 main
 async def main() -> None:
     load_env()
+ main
     inp = Path("manus_input.txt")
     out = Path("manus_output.txt")
     inp.touch(exist_ok=True)

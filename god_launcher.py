@@ -27,7 +27,11 @@ async def run_cli() -> None:
 
 
 def main() -> None:
+zjbow5-codex/costruire-sistema-god-ai
+    load_env(prompt_missing=True)
+
     load_env()
+ main
     if in_colab():
         print("Running in Google Colab. Ensure GPU is allocated for Mixtral.")
     asyncio.run(run_cli())

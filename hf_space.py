@@ -2,9 +2,17 @@ import asyncio
 
 import gradio as gr
 
+ zjbow5-codex/costruire-sistema-god-ai
+from app.env import load_env
 from god_core import GodCore
 
 
+load_env(prompt_missing=True)
+
+from god_core import GodCore
+
+
+ main
 core = GodCore()
 
 

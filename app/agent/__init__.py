@@ -23,6 +23,12 @@ if TYPE_CHECKING:  # Avoid circular imports at runtime
     from arc_raphael import ArcRaphael
 
 
+if TYPE_CHECKING:  # Avoid circular imports at runtime
+    from arc_gabriel import ArcGabriel
+    from arc_michael import ArcMichael
+    from arc_raphael import ArcRaphael
+
+
 __all__ = [
     "BaseAgent",
     "PlanningAgent",
