@@ -127,6 +127,15 @@ python god_launcher.py
 ```
 
 inside a free Google Colab and it will load the model automatically. You can
+When running in Colab, use getpass to input your secrets securely:
+
+```python
+import getpass
+DEEPSEEK_API_KEY = getpass.getpass("DeepSeek key: ")
+TELEGRAM_BOT_TOKEN = getpass.getpass("Telegram token: ")
+TELEGRAM_CHAT_ID = getpass.getpass("Chat ID: ")
+```
+
 also execute `bash start.sh cli` to invoke the CLI through the same startup
 script.
 
