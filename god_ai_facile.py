@@ -1,10 +1,18 @@
 import asyncio
+bc1kvb-codex/costruire-sistema-god-ai
+from pathlib import Path
+
+from app.env import load_env
+
 import os
 from pathlib import Path
 
+main
 from app.logger import logger
 from god_core import GodCore
 
+
+bc1kvb-codex/costruire-sistema-god-ai
 
 def load_env() -> None:
     """Load variables from .env if present."""
@@ -19,6 +27,7 @@ def load_env() -> None:
         os.environ.setdefault(key, value)
 
 
+main
 async def main() -> None:
     load_env()
     inp = Path("manus_input.txt")

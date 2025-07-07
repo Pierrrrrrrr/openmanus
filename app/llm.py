@@ -4,6 +4,10 @@ import asyncio
 from typing import Dict, List, Optional, Union
 
 from app.deepseek import ask_deepseek
+ bc1kvb-codex/costruire-sistema-god-ai
+from app.mixtral import ask_mixtral
+=======
+ main
 from app.schema import Message
 
 
@@ -42,7 +46,14 @@ class LLM:
         )
         prompt = "\n".join(prompt_parts)
         loop = asyncio.get_event_loop()
+ bc1kvb-codex/costruire-sistema-god-ai
+        try:
+            return await loop.run_in_executor(None, ask_mixtral, prompt)
+        except Exception:
+            return await loop.run_in_executor(None, ask_deepseek, prompt)
+
         return await loop.run_in_executor(None, ask_deepseek, prompt)
+main
 
     async def ask_tool(
         self,
